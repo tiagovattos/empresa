@@ -19,8 +19,8 @@
         <div class="nav-wrapper purple darken-4">
             <a href="#" class="brand-logo right">Logo</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="sass.html">Clientes</a></li>
-                <li><a href="badges.html">Categorias</a></li>
+                <li><a href="C:\xampp\htdocs\empresa\VIEW\cliente\listarClientes.php">Clientes</a></li>
+                <li><a href="C:\xampp\htdocs\empresa\VIEW\categorias\listarCategorias.php">Categorias</a></li>
                 <li><a href="collapsible.html">Produtos</a></li>
             </ul>
         </div>
