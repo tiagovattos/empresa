@@ -11,6 +11,8 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+    <script src="/view/js/init.js"></script>
+
     <title>Menu</title>
 </head>
 
@@ -19,12 +21,16 @@
         <div class="nav-wrapper purple darken-4">
             <a href="#" class="brand-logo right">Logo</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a onclick="JavaScript:location.href='C:\xampp\htdocs\empresa\VIEW\cliente\listarClientes.php'">Clientes</a></li>
+                <li><a href="/empresa/VIEW/cliente/listarClientes.php">Clientes</a></li>
                 <li><a href="">Categorias</a></li>
                 <li><a href="">Produtos</a></li>
             </ul>
         </div>
     </nav>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="/view/js/materialize.js"></script>
+    <script src="../init.js"></script>
+
 </body>
 
 </html>
