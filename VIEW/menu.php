@@ -22,7 +22,7 @@
             <a href="#" class="brand-logo right">Logo</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
                 <li><a href="/empresa/VIEW/cliente/listarClientes.php">Clientes</a></li>
-                <li><a href="">Categorias</a></li>
+                <li><a href="/empresa/VIEW/categorias/listarCategorias.php">Categorias</a></li>
                 <li><a href="">Produtos</a></li>
             </ul>
         </div>

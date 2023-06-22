@@ -5,6 +5,15 @@ use BLL\dalCliente;
 include_once 'C:\xampp\htdocs\empresa\BLL\bllCliente.php';
 $bll = new \BLL\bllCliente();
 $lstCliente = $bll->Select();
+
+function formatarCpf($cpf) {
+    return substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($cpf, 6, 3) . '-' . substr($cpf, 9, 2);
+}
+
+function formatarData($data) {
+    return date('d/m/Y', strtotime($data));
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -44,8 +53,8 @@ $lstCliente = $bll->Select();
             <tr>
                 <td><?php echo $cliente->getId(); ?></td>
                 <td><?php echo $cliente->getNome(); ?></td>
-                <td><?php echo $cliente->getCpf(); ?></td>
-                <td><?php echo $cliente->getDataNascimento(); ?></td>
+                <td><?php echo formatarCpf($cliente->getCpf()); ?></td>
+                <td><?php echo formatarData($cliente->getDataNascimento()); ?></td>
                 <td><?php echo $cliente->getEmail(); ?></td>
                 <td>
                     <a class="waves-effect waves-light yellow darken-3 btn" onclick="JavaScript:location.href='editarCliente.php?id=' + <?php echo $cliente->getId(); ?>">
