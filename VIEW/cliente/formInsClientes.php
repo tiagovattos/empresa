@@ -40,6 +40,9 @@
                 <label for="data_nascimento">Data de nascimento</label>
             </div>
             <button class="btn waves-effect waves-light green" type="submit" name="action">Enviar</button>
+            <a class="btn waves-effect waves-light red" href="listarClientes.php">
+                Voltar
+            </a>
         </form>
     </div>
 
