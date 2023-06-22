@@ -48,7 +48,7 @@ $lstCliente = $bll->Select();
                 <td><?php echo $cliente->getDataNascimento(); ?></td>
                 <td><?php echo $cliente->getEmail(); ?></td>
                 <td>
-                    <a class="waves-effect waves-light yellow darken-3 btn" onclick="JavaScript:location.href='editarCliente.php?id=' + <?php echo $operador->getId(); ?>">
+                    <a class="waves-effect waves-light yellow darken-3 btn" onclick="JavaScript:location.href='editarCliente.php?id=' + <?php echo $cliente->getId(); ?>">
                         <i class="fas fa-pencil-alt"></i>
                     </a>
                 </td>
