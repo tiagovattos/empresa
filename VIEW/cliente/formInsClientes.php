@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <?php include 'menu.php'; ?>    
+    <?php include_once '../menu.php'; ?>    
 
     <h1 class="center">Inserir Cliente</h1>
 

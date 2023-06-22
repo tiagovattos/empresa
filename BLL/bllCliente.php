@@ -13,6 +13,11 @@
             $dal = new \DAL\dalCliente();
             return $dal->Insert($cliente);
         }
+
+        public function Delete (int $id){
+            $dal = new \DAL\dalCliente(); 
+            $dal->Delete($id);
+         }
     }
 
 ?> 

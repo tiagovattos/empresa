@@ -19,7 +19,7 @@
         <div class="nav-wrapper purple darken-4">
             <a href="#" class="brand-logo right">Logo</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="C:\xampp\htdocs\empresa\VIEW\cliente\listarClientes.php">Clientes</a></li>
+                <li><a onclick="JavaScript:location.href='C:\xampp\htdocs\empresa\VIEW\cliente\listarClientes.php'">Clientes</a></li>
                 <li><a href="">Categorias</a></li>
                 <li><a href="">Produtos</a></li>
             </ul>

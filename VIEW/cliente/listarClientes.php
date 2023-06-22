@@ -48,10 +48,15 @@ $lstCliente = $bll->Select();
                 <td><?php echo $cliente->getDataNascimento(); ?></td>
                 <td><?php echo $cliente->getEmail(); ?></td>
                 <td>
-                    <a class="waves-effect waves-light yellow darken-3 btn"><i class="fas fa-pencil-alt"></i></a>
+                    <a class="waves-effect waves-light yellow darken-3 btn" onclick="JavaScript:location.href='editarCliente.php?id=' + <?php echo $operador->getId(); ?>">
+                        <i class="fas fa-pencil-alt"></i>
+                    </a>
                 </td>
                 <td>
-                    <a class="waves-effect waves-light red btn"><i class="fas fa-trash-alt"></i></a>
+                    <a class="waves-effect waves-light red btn" onclick="JavaScript: remover(<?php echo $cliente->getId(); ?>)">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+
                 </td>
             </tr>
         <?php
@@ -61,7 +66,7 @@ $lstCliente = $bll->Select();
     </table>
 
     <div class="botao-adicionar">
-        <a class="waves-effect waves-light green btn left" href="formInsClientes.php">
+        <a class="waves-effect waves-light green btn left" onclick="JavaScript:location.href='formInsClientes.php'">
             <i class="fas fa-plus"></i>
         </a>
     </div>
@@ -81,3 +86,11 @@ $lstCliente = $bll->Select();
         left: 20px;
     }
 </style>
+
+<script>
+    function remover(id) {
+        if (confirm('Excluir o Cliente ' + id + '?')) {
+            location.href = 'deletarCliente.php?id=' + id;
+        }
+    }
+</script>

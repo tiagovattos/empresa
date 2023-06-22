@@ -38,4 +38,16 @@ use PDO;
             return $result; 
 
         }
+
+        public function Delete(int $id){
+            $sql = "DELETE FROM cliente WHERE id=?";
+
+            $pdo = Conexao::conectar(); 
+            $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION); 
+            $query = $pdo->prepare($sql);
+            $result = $query->execute(array($id));
+            $con = Conexao::desconectar();
+            return  $result; 
+        }
+
     }
