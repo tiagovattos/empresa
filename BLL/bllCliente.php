@@ -6,9 +6,12 @@
     class bllCliente {
         public function Select(){
             $dal = new \DAL\dalCliente();
-            //linhas de codigo com regras de negocio
-
             return $dal->Select();
+        }
+
+        public function Insert(\MODEL\Cliente $cliente){
+            $dal = new \DAL\dalCliente();
+            return $dal->Insert($cliente);
         }
     }
 

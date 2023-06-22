@@ -26,4 +26,16 @@ use PDO;
             }
             return $lstCliente;
         }
+
+        public function Insert(\MODEL\Cliente $cliente){
+            $con = Conexao::conectar(); 
+            $sql = "INSERT INTO cliente (nome, cpf, data_nascimento, email) 
+                   VALUES  ('{$cliente->getNome()}', '{$cliente->getCpf()}',
+                            '{$cliente->getDataNascimento()}', '{$cliente->getEmail()}');";
+     
+            $result = $con->query($sql); 
+            $con = Conexao::desconectar();
+            return $result; 
+
+        }
     }

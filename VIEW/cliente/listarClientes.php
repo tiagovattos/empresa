@@ -26,6 +26,8 @@ $lstCliente = $bll->Select();
 </head>
 
 <body>
+    <?php include '../menu.php'; ?>
+
     <h1 class="center">Clientes</h1>
     <table class="highlight blue lighten-3">
         <tr>
@@ -59,7 +61,7 @@ $lstCliente = $bll->Select();
     </table>
 
     <div class="botao-adicionar">
-        <a class="waves-effect waves-light green btn left">
+        <a class="waves-effect waves-light green btn left" href="formInsClientes.php">
             <i class="fas fa-plus"></i>
         </a>
     </div>

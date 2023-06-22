@@ -20,8 +20,8 @@
             <a href="#" class="brand-logo right">Logo</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
                 <li><a href="C:\xampp\htdocs\empresa\VIEW\cliente\listarClientes.php">Clientes</a></li>
-                <li><a href="C:\xampp\htdocs\empresa\VIEW\categorias\listarCategorias.php">Categorias</a></li>
-                <li><a href="collapsible.html">Produtos</a></li>
+                <li><a href="">Categorias</a></li>
+                <li><a href="">Produtos</a></li>
             </ul>
         </div>
     </nav>
