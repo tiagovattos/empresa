@@ -17,7 +17,7 @@
         header("location: listarProdutos.php");
     } catch (\PDOException $e) {
         if ($e->getCode() === '23000') {
-            header("location: editarProduto.php?id=" . $produto->getId() . "&error= Categoria não encontrada");
+            header("location: editarProduto.php?id=" . $produto->getId() . "&error=foreign_key");
         } else {
             header("location: editarProduto.php?id=" . $produto->getId() . "&error=unknown");
         }

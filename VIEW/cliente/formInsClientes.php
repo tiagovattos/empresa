@@ -45,7 +45,7 @@
             </a>
         </form>
     </div>
-
+    <?php include_once '../rodape.php'; ?>
     
 </body>
 
