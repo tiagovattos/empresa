@@ -23,7 +23,7 @@
             <ul id="nav-mobile" class="left hide-on-med-and-down">
                 <li><a href="/empresa/VIEW/cliente/listarClientes.php">Clientes</a></li>
                 <li><a href="/empresa/VIEW/categorias/listarCategorias.php">Categorias</a></li>
-                <li><a href="">Produtos</a></li>
+                <li><a href="/empresa/VIEW/produto/listarProdutos.php">Produtos</a></li>
             </ul>
         </div>
     </nav>
