@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['login']))
+    header("location:/empresa/VIEW/index.php")
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -24,6 +30,7 @@
                 <li><a href="/empresa/VIEW/cliente/listarClientes.php">Clientes</a></li>
                 <li><a href="/empresa/VIEW/categorias/listarCategorias.php">Categorias</a></li>
                 <li><a href="/empresa/VIEW/produto/listarProdutos.php">Produtos</a></li>
+                <li><a href="/empresa/VIEW/logout.php">Logout</a></li>
             </ul>
         </div>
     </nav>

@@ -53,7 +53,7 @@
             <div class="container">
                 <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
 
-                    <form class="col s12" method="post">
+                    <form class="col s12" method="post" action="login.php">
                         <div class='row'>
                             <div class='col s12'>
                             </div>
@@ -68,7 +68,7 @@
 
                         <div class='row'>
                             <div class='input-field col s12'>
-                                <input class='validate' type='password' name='password' id='password' />
+                                <input class='validate' type='password' name='senha' id='password' /> 
                                 <label for='password'>Senha</label>
                             </div>
                         </div>
