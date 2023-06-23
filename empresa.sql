@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21/06/2023 às 21:34
+-- Tempo de geração: 23/06/2023 às 15:19
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -38,9 +38,11 @@ CREATE TABLE `categoria` (
 --
 
 INSERT INTO `categoria` (`id`, `descricao`, `qntd_produtos`) VALUES
-(1, 'Limpeza', 0),
-(2, 'Comida', 0),
-(3, 'Bebida', 0);
+(10, 'Eletrônicos', 0),
+(11, 'Roupas', 0),
+(12, 'Acessórios', 0),
+(13, 'Alimentos', 0),
+(14, 'Beleza e Saúde', 0);
 
 -- --------------------------------------------------------
 
@@ -61,9 +63,10 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`id`, `nome`, `cpf`, `data_nascimento`, `email`) VALUES
-(1, 'Gabriela', '43031471091', '2008-06-04', 'gabrielahadassavieira@barratravel.com.br'),
-(2, 'Luís', '01591384931', '1995-02-15', 'luismurilosilva@alvesbarcelos.com.br'),
-(3, 'Maitê', '86429603539', '1999-11-10', 'maite_beatriz_sales@cfaraujo.eng.br');
+(10, 'Cláudia Clarice Silveira', '83311378920', '1992-05-07', 'claudia_silveira@aircominternational.com'),
+(11, 'Marcos Vinicius da Paz', '86735227654', '1982-04-02', 'marcos.vinicius.dapaz@cuppari.com.br'),
+(12, 'José Geraldo Moraes', '18291443408', '1968-09-09', 'jose_moraes@vilarreal.com.br'),
+(13, 'Mariana Caroline Barbosa', '79875239259', '1972-12-28', 'mariana-barbosa90@kascher.com.br');
 
 -- --------------------------------------------------------
 
@@ -73,9 +76,22 @@ INSERT INTO `cliente` (`id`, `nome`, `cpf`, `data_nascimento`, `email`) VALUES
 
 CREATE TABLE `produto` (
   `id` int(11) NOT NULL,
+  `nome` varchar(35) NOT NULL,
   `id_categoria` int(11) NOT NULL,
-  `valor` float NOT NULL
+  `valor` float NOT NULL,
+  `qntd_estoque` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `produto`
+--
+
+INSERT INTO `produto` (`id`, `nome`, `id_categoria`, `valor`, `qntd_estoque`) VALUES
+(25, 'Smartphone', 10, 1000, 50),
+(27, 'Camiseta', 11, 30, 100),
+(29, 'Pulseira', 12, 15, 200),
+(30, 'Arroz', 13, 10, 500),
+(32, 'Shampoo', 14, 8.5, 150);
 
 --
 -- Índices para tabelas despejadas
@@ -108,19 +124,19 @@ ALTER TABLE `produto`
 -- AUTO_INCREMENT de tabela `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Restrições para tabelas despejadas

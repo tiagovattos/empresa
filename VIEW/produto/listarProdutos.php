@@ -46,7 +46,7 @@ $lstProduto = $bll->Select();
                 <td><?php echo $produto->getId(); ?></td>
                 <td><?php echo $produto->getNome(); ?></td>
                 <td><?php echo $produto->getIdCategoria(); ?></td>
-                <td><?php echo $produto->getValor(); ?></td>
+                <td><?php echo 'R$ ' . number_format($produto->getValor(), 2, ',', '.'); ?></td>
                 <td><?php echo $produto->getQuantidadeEstoque(); ?></td>
                 <td>
                     <a class="waves-effect waves-light yellow darken-3 btn" onclick="JavaScript:location.href='editarProduto.php?id=' + <?php echo $produto->getId(); ?>">

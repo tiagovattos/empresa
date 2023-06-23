@@ -1,4 +1,11 @@
 <?php
+    $errorMessage = $_GET['error'] ?? '';
+    if (!empty($errorMessage)) {
+        echo '<p style="color: red;">Erro: ' . $errorMessage . '</p>';
+    }
+?>
+
+<?php
 
 use BLL\bllCategoria;
 
