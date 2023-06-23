@@ -27,6 +27,7 @@
         <div class="nav-wrapper purple darken-4">
             <a href="/empresa/VIEW/paginaInicial.php" class="brand-logo right">Líder</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="/empresa/VIEW/paginaInicial.php">Home</a></li>
                 <li><a href="/empresa/VIEW/cliente/listarClientes.php">Clientes</a></li>
                 <li><a href="/empresa/VIEW/categorias/listarCategorias.php">Categorias</a></li>
                 <li><a href="/empresa/VIEW/produto/listarProdutos.php">Produtos</a></li>

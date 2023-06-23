@@ -72,7 +72,8 @@ $lstCategoria = $bll->Select();
             <i class="fas fa-plus"></i>
         </a>
     </div>
-
+    <?php include_once '../rodape.php'; ?>
+    
 </body>
 
 </html>
