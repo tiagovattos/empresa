@@ -34,7 +34,6 @@ $lstCategoria = $bll->Select();
         <tr>
             <th>ID</th>
             <th>DESCRICAO</th>
-            <th>QUANTIDADE PRODUTOS</th>
         </tr>
 
         <?php
@@ -43,7 +42,6 @@ $lstCategoria = $bll->Select();
             <tr>
                 <td><?php echo $categoria->getId(); ?></td>
                 <td><?php echo $categoria->getDescricao(); ?></td>
-                <td><?php echo $categoria->getQntdProdutos(); ?></td>
                 <td>
                     <a class="waves-effect waves-light yellow darken-3 btn" onclick="JavaScript:location.href='editarCategoria.php?id=' + <?php echo $categoria->getId(); ?>">
                         <i class="fas fa-pencil-alt"></i>

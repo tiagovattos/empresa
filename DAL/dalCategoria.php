@@ -18,8 +18,6 @@ use PDO;
 
                 $categoria->setId($linha['id']);
                 $categoria->setDescricao($linha['descricao']);
-                $categoria->setQntdProdutos($linha['qntd_produtos']);
-
                 $lstCategoria[] = $categoria;
             }
             return $lstCategoria;
@@ -36,16 +34,14 @@ use PDO;
             $categoria = new \MODEL\Categoria(); 
             $categoria->setId($linha['id']);
             $categoria->setDescricao($linha['descricao']); 
-            $categoria->setQntdProdutos($linha['qntd_produtos']);
-
             return $categoria; 
 
         }
 
         public function Insert(\MODEL\Categoria $categoria){
             $con = Conexao::conectar(); 
-            $sql = "INSERT INTO categoria (descricao, qntd_produtos) 
-                   VALUES  ('{$categoria->getDescricao()}', '{$categoria->getQntdProdutos()}');";
+            $sql = "INSERT INTO categoria (descricao) 
+                   VALUES  ('{$categoria->getDescricao()}');";
      
             $result = $con->query($sql); 
             $con = Conexao::desconectar();
@@ -54,12 +50,12 @@ use PDO;
         }
 
         public function Update(\MODEL\Categoria $categoria){
-            $sql = "UPDATE categoria SET descricao=?, qntd_produtos=? WHERE id=?";
+            $sql = "UPDATE categoria SET descricao=? WHERE id=?";
 
             $pdo = Conexao::conectar(); 
             $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION); 
             $query = $pdo->prepare($sql);
-            $result = $query->execute(array($categoria->getDescricao(), $categoria->getQntdProdutos(),
+            $result = $query->execute(array($categoria->getDescricao(),
                                             $categoria->getId()));
             $con = Conexao::desconectar();
             return  $result; 

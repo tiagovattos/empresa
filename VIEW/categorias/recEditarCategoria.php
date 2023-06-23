@@ -6,7 +6,6 @@
    
    $categoria->setId($_POST['txtID']);
    $categoria->setDescricao($_POST['txtDescricao']);
-   $categoria->setQntdProdutos($_POST['qntdProdutos']);
 
    $bll = new \BLL\bllCategoria(); 
    $bll->Update($categoria); 

@@ -5,7 +5,6 @@
    $categoria = new \MODEL\Categoria(); 
    
    $categoria->setDescricao($_POST['txtDescricao']);
-   $categoria->setQntdProdutos($_POST['qntdProdutos']);
 
 
    $bll = new \BLL\bllCategoria(); 

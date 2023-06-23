@@ -4,12 +4,10 @@ namespace MODEL;
 class Categoria {
     private ?int $id;
     private ?string $descricao;
-    private ?int $qntdProdutos;
 
-    public function __construct(?int $id = null, ?string $descricao = null, ?int $qntdProdutos = null) {
+    public function __construct(?int $id = null, ?string $descricao = null) {
         $this->id = $id;
         $this->descricao = $descricao;
-        $this->qntdProdutos = 0;
     }
 
     public function getId(): ?int {
@@ -26,14 +24,6 @@ class Categoria {
 
     public function setDescricao(?string $descricao): void {
         $this->descricao = $descricao;
-    }
-
-    public function getQntdProdutos(): ?int {
-        return $this->qntdProdutos;
-    }
-
-    public function setQntdProdutos(?int $qntdProdutos): void {
-        $this->qntdProdutos = $qntdProdutos;
     }
 }
 ?>
