@@ -16,7 +16,7 @@
         header("location: listarProdutos.php");
     } catch (\PDOException $e) {
         if ($e->getCode() === '23000') { // chave estrangeira
-            header("location: formInsProduto.php?error= Categoria não encontrada");
+            header("location: formInsProduto.php?error=foreign_key");
         } else {  // outros erros
             header("location: formInsProduto.php?error=unknown");
         }

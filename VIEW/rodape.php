@@ -13,6 +13,26 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 
+    <style>
+       footer {
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-top: 120px;
+        }
+
+        footer p {
+            text-align: center;
+            margin: 20px 0px;
+            color: #fff;
+        }
+
+        footer p a {
+            color: #fff;
+            transition: all .5s;
+        }
+    </style>
+
 
     <title>Rodape</title>
 </head>

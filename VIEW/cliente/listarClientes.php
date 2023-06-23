@@ -32,6 +32,7 @@ function formatarData($data) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <title>Listar Clientes</title>
+    
 </head>
 
 <body>
@@ -79,10 +80,13 @@ function formatarData($data) {
             <i class="fas fa-plus"></i>
         </a>
     </div>
+    <?php include_once '../rodape.php'; ?>
 
 </body>
 
+
 </html>
+
 
 <style>
     table {
