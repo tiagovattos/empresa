@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26/06/2023 às 19:54
+-- Tempo de geração: 26/06/2023 às 23:58
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -29,20 +29,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categoria` (
   `id` int(11) NOT NULL,
-  `descricao` varchar(35) NOT NULL,
-  `qntd_produtos` int(11) NOT NULL
+  `descricao` varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `categoria`
 --
 
-INSERT INTO `categoria` (`id`, `descricao`, `qntd_produtos`) VALUES
-(10, 'Eletrônicos', 0),
-(11, 'Roupas', 0),
-(12, 'Acessórios', 0),
-(13, 'Alimentos', 0),
-(14, 'Beleza e Saúde', 0);
+INSERT INTO `categoria` (`id`, `descricao`) VALUES
+(10, 'Eletrônicos'),
+(11, 'Roupas'),
+(12, 'Acessórios'),
+(13, 'Alimentos'),
+(14, 'Beleza e Saúde');
 
 -- --------------------------------------------------------
 
@@ -65,7 +64,9 @@ CREATE TABLE `cliente` (
 INSERT INTO `cliente` (`id`, `nome`, `cpf`, `data_nascimento`, `email`) VALUES
 (10, 'Cláudia Clarice Silveira', '83311378920', '1992-05-07', 'claudia_silveira@aircominternational.com'),
 (11, 'Marcos Vinicius da Paz', '86735227654', '1982-04-02', 'marcos.vinicius.dapaz@cuppari.com.br'),
-(12, 'Pedro Geraldo Moraes', '18291443408', '1968-09-09', 'jose_moraes@vilarreal.com.br');
+(12, 'Pedro Geraldo Moraes', '18291443408', '1968-09-09', 'jose_moraes@vilarreal.com.br'),
+(18, 'Carla Depes', '13611567086', '1984-10-22', 'carladepes@gmail.com'),
+(19, 'Marcos Antônio Bueno', '83634974010', '2007-06-13', 'marcosbueno@hotmail.com');
 
 -- --------------------------------------------------------
 
@@ -87,7 +88,8 @@ CREATE TABLE `encomenda` (
 
 INSERT INTO `encomenda` (`id`, `fornecedor`, `data_pedido`, `id_produto`, `quantidade`) VALUES
 (5, 'Samsung', '2023-06-26', 25, 10),
-(6, 'Nike', '2023-06-26', 29, 50);
+(6, 'Nike', '2023-06-26', 29, 50),
+(8, 'Camil', '2023-06-26', 30, 50);
 
 -- --------------------------------------------------------
 
@@ -108,11 +110,11 @@ CREATE TABLE `produto` (
 --
 
 INSERT INTO `produto` (`id`, `nome`, `id_categoria`, `valor`, `qntd_estoque`) VALUES
-(25, 'Smartphone', 10, 1000, 60),
-(27, 'Camiseta', 11, 30, 100),
-(29, 'Pulseira', 12, 15, 250),
-(30, 'Arroz', 13, 10, 500),
-(32, 'Shampoo', 14, 8.5, 150);
+(25, 'Smartphone', 10, 2350, 60),
+(27, 'Camiseta', 11, 30, 68),
+(29, 'Pulseira', 12, 15, 251),
+(30, 'Arroz', 13, 9.8, 152),
+(32, 'Shampoo', 14, 8.5, 145);
 
 -- --------------------------------------------------------
 
@@ -178,25 +180,25 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de tabela `encomenda`
 --
 ALTER TABLE `encomenda`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
