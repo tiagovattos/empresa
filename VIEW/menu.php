@@ -31,6 +31,7 @@
                 <li><a href="/empresa/VIEW/cliente/listarClientes.php">Clientes</a></li>
                 <li><a href="/empresa/VIEW/categorias/listarCategorias.php">Categorias</a></li>
                 <li><a href="/empresa/VIEW/produto/listarProdutos.php">Produtos</a></li>
+                <li><a href="/empresa/VIEW/encomenda/listarEncomendas.php">Encomendas</a></li>
                 <li><a href="/empresa/VIEW/logout.php">Logout</a></li>
             </ul>
         </div>

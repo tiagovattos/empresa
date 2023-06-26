@@ -1,10 +1,15 @@
 <?php
 
-use BLL\dalProduto;
+use BLL\bllProduto;
+use BLL\bllCategoria;
 
 include_once 'C:\xampp\htdocs\empresa\BLL\bllProduto.php';
-$bll = new \BLL\bllProduto();
-$lstProduto = $bll->Select();
+include_once 'C:\xampp\htdocs\empresa\BLL\bllCategoria.php';
+
+$bllProduto = new \BLL\bllProduto();
+$lstProduto = $bllProduto->Select();
+
+$bllCategoria = new \BLL\bllCategoria();
 
 ?>
 
@@ -34,19 +39,20 @@ $lstProduto = $bll->Select();
         <tr>
             <th>ID</th>
             <th>NOME</th>
-            <th>ID CATEGORIA</th>
+            <th>CATEGORIA</th>
             <th>VALOR</th>
             <th>QUANTIDADE EM ESTOQUE</th>
         </tr>
 
         <?php
         foreach ($lstProduto as $produto) {
+            $categoria = $bllCategoria->SelectID($produto->getIdCategoria());
         ?>
             <tr>
                 <td><?php echo $produto->getId(); ?></td>
                 <td><?php echo $produto->getNome(); ?></td>
-                <td><?php echo $produto->getIdCategoria(); ?></td>
-                <td><?php echo $produto->getValor(); ?></td>
+                <td><?php echo $produto->getIdCategoria() . " - " . $categoria->getDescricao(); ?></td>
+                <td>R$ <?php echo number_format($produto->getValor(), 2, ',', '.'); ?></td>
                 <td><?php echo $produto->getQuantidadeEstoque(); ?></td>
                 <td>
                     <a class="waves-effect waves-light yellow darken-3 btn" onclick="JavaScript:location.href='editarProduto.php?id=' + <?php echo $produto->getId(); ?>">
@@ -54,7 +60,7 @@ $lstProduto = $bll->Select();
                     </a>
                 </td>
                 <td>
-                    <a class="waves-effect waves-light red btn" onclick="JavaScript: remover(<?php echo $produto->getId(); ?>)">
+                    <a class="waves-effect waves-light red btn" onclick="JavaScript:remover(<?php echo $produto->getId(); ?>)">
                         <i class="fas fa-trash-alt"></i>
                     </a>
                 </td>
