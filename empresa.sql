@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23/06/2023 às 15:19
+-- Tempo de geração: 26/06/2023 às 13:19
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -65,8 +65,7 @@ CREATE TABLE `cliente` (
 INSERT INTO `cliente` (`id`, `nome`, `cpf`, `data_nascimento`, `email`) VALUES
 (10, 'Cláudia Clarice Silveira', '83311378920', '1992-05-07', 'claudia_silveira@aircominternational.com'),
 (11, 'Marcos Vinicius da Paz', '86735227654', '1982-04-02', 'marcos.vinicius.dapaz@cuppari.com.br'),
-(12, 'José Geraldo Moraes', '18291443408', '1968-09-09', 'jose_moraes@vilarreal.com.br'),
-(13, 'Mariana Caroline Barbosa', '79875239259', '1972-12-28', 'mariana-barbosa90@kascher.com.br');
+(12, 'Pedro Geraldo Moraes', '18291443408', '1968-09-09', 'jose_moraes@vilarreal.com.br');
 
 -- --------------------------------------------------------
 
@@ -93,6 +92,26 @@ INSERT INTO `produto` (`id`, `nome`, `id_categoria`, `valor`, `qntd_estoque`) VA
 (30, 'Arroz', 13, 10, 500),
 (32, 'Shampoo', 14, 8.5, 150);
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id` int(11) NOT NULL,
+  `usuario` varchar(10) NOT NULL,
+  `senha` varchar(32) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
+
+--
+-- Despejando dados para a tabela `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `usuario`, `senha`) VALUES
+(1, 'tiago', '30f55b2d2628f2bb72beb0c52550af9f'),
+(3, 'rafael', '30f55b2d2628f2bb72beb0c52550af9f');
+
 --
 -- Índices para tabelas despejadas
 --
@@ -117,6 +136,12 @@ ALTER TABLE `produto`
   ADD KEY `categoria_produto` (`id_categoria`);
 
 --
+-- Índices de tabela `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT para tabelas despejadas
 --
 
@@ -124,19 +149,25 @@ ALTER TABLE `produto`
 -- AUTO_INCREMENT de tabela `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
+--
+-- AUTO_INCREMENT de tabela `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restrições para tabelas despejadas
