@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26/06/2023 às 13:19
+-- Tempo de geração: 26/06/2023 às 19:54
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -70,6 +70,28 @@ INSERT INTO `cliente` (`id`, `nome`, `cpf`, `data_nascimento`, `email`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `encomenda`
+--
+
+CREATE TABLE `encomenda` (
+  `id` int(11) NOT NULL,
+  `fornecedor` varchar(35) NOT NULL,
+  `data_pedido` date NOT NULL,
+  `id_produto` int(11) NOT NULL,
+  `quantidade` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
+
+--
+-- Despejando dados para a tabela `encomenda`
+--
+
+INSERT INTO `encomenda` (`id`, `fornecedor`, `data_pedido`, `id_produto`, `quantidade`) VALUES
+(5, 'Samsung', '2023-06-26', 25, 10),
+(6, 'Nike', '2023-06-26', 29, 50);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `produto`
 --
 
@@ -86,9 +108,9 @@ CREATE TABLE `produto` (
 --
 
 INSERT INTO `produto` (`id`, `nome`, `id_categoria`, `valor`, `qntd_estoque`) VALUES
-(25, 'Smartphone', 10, 1000, 50),
+(25, 'Smartphone', 10, 1000, 60),
 (27, 'Camiseta', 11, 30, 100),
-(29, 'Pulseira', 12, 15, 200),
+(29, 'Pulseira', 12, 15, 250),
 (30, 'Arroz', 13, 10, 500),
 (32, 'Shampoo', 14, 8.5, 150);
 
@@ -129,6 +151,13 @@ ALTER TABLE `cliente`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices de tabela `encomenda`
+--
+ALTER TABLE `encomenda`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `produto_encomenda` (`id_produto`);
+
+--
 -- Índices de tabela `produto`
 --
 ALTER TABLE `produto`
@@ -158,6 +187,12 @@ ALTER TABLE `cliente`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
+-- AUTO_INCREMENT de tabela `encomenda`
+--
+ALTER TABLE `encomenda`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT de tabela `produto`
 --
 ALTER TABLE `produto`
@@ -172,6 +207,12 @@ ALTER TABLE `usuario`
 --
 -- Restrições para tabelas despejadas
 --
+
+--
+-- Restrições para tabelas `encomenda`
+--
+ALTER TABLE `encomenda`
+  ADD CONSTRAINT `produto_encomenda` FOREIGN KEY (`id_produto`) REFERENCES `produto` (`id`);
 
 --
 -- Restrições para tabelas `produto`
