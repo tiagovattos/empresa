@@ -1,8 +1,8 @@
 <?php
-    $errorMessage = $_GET['error'] ?? '';
-    if (!empty($errorMessage)) {
-        echo '<p style="color: red;">Erro: ' . $errorMessage . '</p>';
-    }
+$errorMessage = $_GET['error'] ?? '';
+if (!empty($errorMessage)) {
+    echo '<p style="color: red;">Erro: ' . $errorMessage . '</p>';
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,7 @@
 </head>
 
 <body>
-    <?php include_once '../menu.php'; ?>    
+    <?php include_once '../menu.php'; ?>
 
     <h1 class="center">Inserir Produto</h1>
 
@@ -53,7 +53,47 @@
         </form>
     </div>
     <?php include_once '../rodape.php'; ?>
-    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('formInsProduto');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const nome = document.getElementById('nome').value;
+                const id_categoria = document.getElementById('id_categoria').value;
+                const valor = document.getElementById('valor').value;
+                const quantidade_estoque = document.getElementById('quantidade_estoque').value;
+
+                let errorMessage = '';
+
+                if (nome.trim() === '') {
+                    errorMessage += 'O campo Nome é obrigatório.\n';
+                }
+
+                if (id_categoria.trim() === '') {
+                    errorMessage += 'O campo ID Categoria é obrigatório.\n';
+                }
+
+                if (isNaN(valor) || valor <= 0) {
+                    errorMessage += 'O campo Valor deve ser um número positivo.\n';
+                }
+
+                if (isNaN(quantidade_estoque) || quantidade_estoque < 0) {
+                    errorMessage += 'O campo Quantidade em Estoque deve ser um número não negativo.\n';
+                }
+
+                if (errorMessage !== '') {
+                    alert(errorMessage);
+                    return;
+                }
+
+                form.submit();
+            });
+        });
+    </script>
+
+
 </body>
 
-</html> 
+</html>

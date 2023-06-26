@@ -34,6 +34,30 @@
         </form>
     </div>
     <?php include_once '../rodape.php'; ?>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('formInsCategoria');
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const descricao = document.getElementById('descricao').value;
+
+                let errorMessage = '';
+
+                if (descricao.trim() === '') {
+                    errorMessage += 'O campo Descrição é obrigatório.\n';
+                }
+
+                if (errorMessage !== '') {
+                    alert(errorMessage);
+                    return;
+                }
+
+                form.submit();
+            });
+        });
+    </script>
     
 </body>
 

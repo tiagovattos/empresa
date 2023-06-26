@@ -1,8 +1,8 @@
 <?php
-    $errorMessage = $_GET['error'] ?? '';
-    if (!empty($errorMessage)) {
-        echo '<p style="color: red;">Erro: ' . $errorMessage . '</p>';
-    }
+$errorMessage = $_GET['error'] ?? '';
+if (!empty($errorMessage)) {
+    echo '<p style="color: red;">Erro: ' . $errorMessage . '</p>';
+}
 ?>
 
 
@@ -67,6 +67,49 @@ $produto = $bll->SelectID($id);
         </form>
     </div>
     <?php include_once '../rodape.php'; ?>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('formEditarProduto');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Impede o envio automático do formulário
+
+                const nome = document.getElementById('nome').value;
+                const id_categoria = document.getElementById('id_categoria').value;
+                const valor = document.getElementById('valor').value;
+                const quantidade_estoque = document.getElementById('quantidade_estoque').value;
+
+                // Realize as validações necessárias
+                let errorMessage = '';
+
+                if (nome.trim() === '') {
+                    errorMessage += 'O campo Nome é obrigatório.\n';
+                }
+
+                if (id_categoria.trim() === '') {
+                    errorMessage += 'O campo ID Categoria é obrigatório.\n';
+                }
+
+                if (isNaN(valor) || valor <= 0) {
+                    errorMessage += 'O campo Valor deve ser um número positivo.\n';
+                }
+
+                if (isNaN(quantidade_estoque) || quantidade_estoque < 0) {
+                    errorMessage += 'O campo Quantidade em Estoque deve ser um número não negativo.\n';
+                }
+
+                // Se houver erros, exiba a mensagem de erro
+                if (errorMessage !== '') {
+                    alert(errorMessage);
+                    return;
+                }
+
+                // Envie o formulário se não houver erros
+                form.submit();
+            });
+        });
+    </script>
+
 </body>
 
 </html>

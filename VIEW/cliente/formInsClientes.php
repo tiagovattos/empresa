@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <?php include_once '../menu.php'; ?>    
+    <?php include_once '../menu.php'; ?>
 
     <h1 class="center">Inserir Cliente</h1>
 
@@ -46,7 +46,107 @@
         </form>
     </div>
     <?php include_once '../rodape.php'; ?>
-    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('formInsCliente');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const nome = document.getElementById('nome').value;
+                const cpf = document.getElementById('cpf').value;
+                const email = document.getElementById('email').value;
+                const data_nascimento = document.getElementById('data_nascimento').value;
+
+                let errorMessage = '';
+
+                if (nome.trim() === '') {
+                    errorMessage += 'O campo Nome é obrigatório.\n';
+                }
+
+                if (cpf.trim() === '') {
+                    errorMessage += 'O campo CPF é obrigatório.\n';
+                } else if (!validarCPF(cpf)) {
+                    errorMessage += 'CPF inválido.\n';
+                }
+
+                if (email.trim() === '') {
+                    errorMessage += 'O campo E-mail é obrigatório.\n';
+                } else if (!validarEmail(email)) {
+                    errorMessage += 'E-mail inválido.\n';
+                }
+
+                if (data_nascimento.trim() === '') {
+                    errorMessage += 'O campo Data de nascimento é obrigatório.\n';
+                }
+
+                if (errorMessage !== '') {
+                    alert(errorMessage);
+                    return;
+                }
+
+                form.submit();
+            });
+
+            // Função para validar CPF
+            function validarCPF(cpf) {
+                cpf = cpf.replace(/[^\d]+/g, ''); // Remove caracteres não numéricos
+
+                if (cpf.length !== 11) {
+                    return false;
+                }
+
+                // Verifica se todos os dígitos são iguais (CPF inválido)
+                if (/^(\d)\1+$/.test(cpf)) {
+                    return false;
+                }
+
+                // Validação dos dígitos verificadores
+                let sum = 0;
+                let remainder;
+
+                for (let i = 1; i <= 9; i++) {
+                    sum += parseInt(cpf.substring(i - 1, i)) * (11 - i);
+                }
+
+                remainder = (sum * 10) % 11;
+
+                if (remainder === 10 || remainder === 11) {
+                    remainder = 0;
+                }
+
+                if (remainder !== parseInt(cpf.substring(9, 10))) {
+                    return false;
+                }
+
+                sum = 0;
+
+                for (let i = 1; i <= 10; i++) {
+                    sum += parseInt(cpf.substring(i - 1, i)) * (12 - i);
+                }
+
+                remainder = (sum * 10) % 11;
+
+                if (remainder === 10 || remainder === 11) {
+                    remainder = 0;
+                }
+
+                if (remainder !== parseInt(cpf.substring(10, 11))) {
+                    return false;
+                }
+
+                return true;
+            }
+
+            // Função para validar e-mail
+            function validarEmail(email) {
+                const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return regex.test(email);
+            }
+        });
+    </script>
+
+
 </body>
 
-</html> 
+</html>

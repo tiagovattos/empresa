@@ -1,8 +1,8 @@
 <?php
-    $errorMessage = $_GET['error'] ?? '';
-    if (!empty($errorMessage)) {
-        echo '<p style="color: red;">Erro: ' . $errorMessage . '</p>';
-    }
+$errorMessage = $_GET['error'] ?? '';
+if (!empty($errorMessage)) {
+    echo '<p style="color: red;">Erro: ' . $errorMessage . '</p>';
+}
 ?>
 
 <!DOCTYPE html>
@@ -21,10 +21,44 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <title>Inserir Encomenda</title>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('formInsEncomenda');
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const fornecedor = document.getElementById('fornecedor').value;
+                const id_produto = document.getElementById('id_produto').value;
+                const quantidade = document.getElementById('quantidade').value;
+
+                let errorMessage = '';
+
+                if (fornecedor.trim() === '') {
+                    errorMessage += 'O campo Fornecedor é obrigatório.\n';
+                }
+
+                if (isNaN(id_produto) || id_produto <= 0) {
+                    errorMessage += 'O campo ID do Produto deve ser um número positivo.\n';
+                }
+
+                if (isNaN(quantidade) || quantidade <= 0) {
+                    errorMessage += 'O campo Quantidade deve ser um número positivo.\n';
+                }
+
+                if (errorMessage !== '') {
+                    alert(errorMessage);
+                    return;
+                }
+
+                form.submit();
+            });
+        });
+    </script>
 </head>
 
 <body>
-    <?php include_once '../menu.php'; ?>    
+    <?php include_once '../menu.php'; ?>
 
     <h1 class="center">Inserir Encomenda</h1>
 
@@ -49,7 +83,7 @@
         </form>
     </div>
     <?php include_once '../rodape.php'; ?>
-    
+
 </body>
 
-</html> 
+</html>
